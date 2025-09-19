@@ -1,6 +1,6 @@
 ## ThreadPool Learning Day05
 
-涉及：如何编译并执行c++程序、如何进行性能测试、Linux下objdump的使用、volatile关键字。
+涉及：如何编译并执行c++程序、如何进行性能测试、使用objdump反汇编、volatile关键字。
 
 第五天：
 
@@ -339,9 +339,9 @@ g++ -O0 -g -std=c++20 -pthread main.cpp -o program_debug
 
 -g 告诉编译器在生成的可执行文件中嵌入调试信息。
 
-调试信息包括：哪一行源代码对应哪一段机器指令、函数名变量名以及它们在寄存器中的位置、源代码的文件结构和路径等
 
-怎么查看调试信息？直接查看它，是乱码，我们可以用工具查看它。
+
+另外，我们可以使用objdump反汇编（功能类似于翻译），查看汇编指令
 
 在另一个文件夹新建一个main.cpp
 
@@ -368,7 +368,7 @@ int main() {
 g++ -O0 -g main.cpp -o debug_program
 ```
 
-我们使用objdump工具查看调试信息
+
 
 objdump几乎总是默认已经安装在Ubuntu系统上的，查看其版本：
 
@@ -615,7 +615,7 @@ vim disassembly_no_source.txt
 
 
 
-调试的内容，暂时补充到这里，回归到性能测试
+反汇编的内容补充到这里，回归到性能测试
 
 volatile告诉编译器：这个变量可能会被意外改变（硬件、信号等）
 
